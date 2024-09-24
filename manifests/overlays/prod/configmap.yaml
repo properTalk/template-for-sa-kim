@@ -4,5 +4,5 @@ metadata:
   name: cloud-82202374-app-config
   namespace: cloud-82202374-app
 data:
-  DB_URL: "jdbc:postgresql://ce-82202374-psql:5432/postgres"
+  DB_URL: "jdbc:postgresql://ce-82202374-psql.postgres.database.azure.com:5432/postgres"
   DB_USERNAME: "ktds"

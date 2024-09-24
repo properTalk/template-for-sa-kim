@@ -25,7 +25,7 @@ spec:
             - mountPath: /config
               name: application-properties
               readOnly: true
-          command: ["java", "-jar", "/app.jar"]
+          command: ["java", "-jar", "/app/template-0.0.1-SNAPSHOT.jar"] 
           args: ["--spring.config.location=file:/config/application.yml"]
           env:
             - name: DB_PASSWORD

@@ -4,9 +4,9 @@ spring:
       on-profile: prod
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${POSTGRE_DB_URL}
-    username: ${POSTGRE_USER}
-    password: ${POSTGRE_PASSWD}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     show-sql: true
     hibernate:

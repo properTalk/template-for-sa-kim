@@ -19,7 +19,7 @@ spec:
           ports:
             - containerPort: 8080
           volumeMounts:
-            - mountPath: /mnt/cloud-82202374-app
+            - mountPath: /mnt/cloud-sample
               name: cloud-82202374-app-volume
               subPath: cloud-82202374-app
             - mountPath: /config

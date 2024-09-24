@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cloud-82202374-app-ingress
+  namespace: default
+spec:
+  ingressClassName: ingress-internal
+  rules:
+    - host: cloud-82202374-app.ce-82202374-sa.kubepia.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cloud-82202374-app
+                port:
+                  number: 8080

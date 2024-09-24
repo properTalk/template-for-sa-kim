@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-82202374-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-82202374-app
+  template:
+    metadata:
+      labels:
+        app: cloud-82202374-app
+    spec:
+      containers:
+        - name: cloud-82202374-app
+          image: cepgbaseacr.azurecr.io/cloud-sample:latest
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: /mnt/cloud-82202374-app
+              name: cloud-82202374-app-volume
+              subPath: cloud-82202374-app
+            - mountPath: /config
+              name: application-properties
+              readOnly: true
+          command: ["java", "-jar", "/app.jar"]
+          args: ["--spring.config.location=file:/config/application.yml"]
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials-secret
+                  key: password
+      volumes:
+        - name: cloud-82202374-app-volume
+          persistentVolumeClaim:
+            claimName: cloud-82202374-app-pvc
+        - name: application-properties
+          configMap:
+            name: cloud-82202374-app-config
+            items:
+              - key: application.yml
+                path: application.yml

@@ -1,0 +1,12 @@
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - pvc.yaml
+  - configmap.yaml
+  - secret.yaml  # Secret 리소스를 추가
+  
+
+images:
+  - name: ce82202374acr.azurecr.io/cloud-sample
+    newTag: "latest"

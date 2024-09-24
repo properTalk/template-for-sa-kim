@@ -4,15 +4,5 @@ metadata:
   name: cloud-82202374-app-config
   namespace: cloud-82202374-app
 data:
-  application.yml: |
-    spring:
-      config:
-        activate:
-          on-profile: prod
-      datasource:
-        url: jdbc:postgresql://ce-82202374-psql:5432/postgres
-        username: ktds
-        password: ${DB_PASSWORD} 
-      jpa:
-        hibernate:
-          ddl-auto: update 
+  DB_URL: "jdbc:postgresql://ce-82202374-psql:5432/postgres"
+  DB_USERNAME: "ktds"

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloud-82202374-app
-  namespace: default
+  namespace: cloud-82202374-app
 spec:
   replicas: 1
   selector:

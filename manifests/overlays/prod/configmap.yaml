@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cloud-82202374-app-config
-  namespace: default
+  namespace: cloud-82202374-app
 data:
   application.yml: |
     spring:

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: cloud-82202374-app-pvc
-  namespace: default
+  namespace: cloud-82202374-app
 spec:
   accessModes:
     - ReadWriteMany

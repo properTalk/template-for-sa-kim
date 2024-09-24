@@ -65,6 +65,7 @@ jobs:
     - name: 'Tag Image for User ACR'
       run: |
         docker tag ${{ secrets.STAPACR_LOGIN_SERVER  }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }} ${{ secrets.MY_ACR_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
+        docker tag ${{ secrets.BASEACR_LOGIN_SERVER  }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }} ${{ secrets.MY_ACR_SERVER }}/${{ env.IMAGE_NAME }}:latest
 
     - name: 'Push image to User ACR'
       run: |

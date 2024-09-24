@@ -2,9 +2,18 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: cloud-82202374-app-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
   namespace: cloud-82202374-app
 spec:
-  ingressClassName: ingress-internal
+  ingressClassName: nginx
+  defaultBackend:
+    service:
+      name: cloud-82202374-app
+      port:
+        number: 80
   rules:
     - host: cloud-82202374-app.ce-82202374-sa.kubepia.net
       http:

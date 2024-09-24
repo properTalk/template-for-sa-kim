@@ -65,18 +65,16 @@ jobs:
     - name: 'Tag Image for User ACR'
       run: |
         docker tag ${{ secrets.STAPACR_LOGIN_SERVER  }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }} ${{ secrets.MY_ACR_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
-        docker tag ${{ secrets.BASEACR_LOGIN_SERVER  }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }} ${{ secrets.MY_ACR_SERVER }}/${{ env.IMAGE_NAME }}:latest
-
+      
     - name: 'Push image to User ACR'
       run: |
         docker push ${{ secrets.MY_ACR_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
-        docker push ${{ secrets.MY_ACR_SERVER }}/${{ env.IMAGE_NAME }}:latest
-    
+       
     - name: Update Kubernetes resources
       run: |
           echo "`ls`"
           cd manifests/overlays/prod
-          kustomize edit set image ${{ secrets.STAPACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
+          kustomize edit set image ${{ secrets.MY_ACR_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
           cat kustomization.yaml
     
     - name: Commit files

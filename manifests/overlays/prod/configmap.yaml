@@ -8,6 +8,6 @@ data:
     spring:
       profiles: prod
       datasource:
-        url: jdbc:postgresql://localhost:5432/your_database
+        url: jdbc:postgresql://ce-82202374-psql:5432/postgres
         username: ktds
         password: ${DB_PASSWORD} 

@@ -6,7 +6,9 @@ metadata:
 data:
   application.yml: |
     spring:
-      profiles: prod
+      config:
+        activate:
+          on-profile: prod
       datasource:
         url: jdbc:postgresql://ce-82202374-psql:5432/postgres
         username: ktds

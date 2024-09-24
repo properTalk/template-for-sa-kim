@@ -33,6 +33,21 @@ spec:
                 secretKeyRef:
                   name: db-credentials-secret
                   key: password
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: prod-config
+                  key: DB_URL
+            - name: DB_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: prod-config
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: prod-secret
+                  key: DB_PASSWORD
       volumes:
         - name: cloud-82202374-app-volume
           persistentVolumeClaim:

@@ -36,12 +36,12 @@ spec:
             - name: DB_URL
               valueFrom:
                 configMapKeyRef:
-                  name: prod-config
+                  name: cloud-82202374-app-config
                   key: DB_URL
             - name: DB_USERNAME
               valueFrom:
                 configMapKeyRef:
-                  name: prod-config
+                  name: cloud-82202374-app-config
                   key: DB_USERNAME
       volumes:
         - name: cloud-82202374-app-volume

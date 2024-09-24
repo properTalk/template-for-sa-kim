@@ -22,9 +22,6 @@ spec:
             - mountPath: /mnt/cloud-sample
               name: cloud-82202374-app-volume
               subPath: cloud-82202374-app
-            - mountPath: /config
-              name: application-properties
-              readOnly: true
           command: ["java", "-jar", "/app/template-0.0.1-SNAPSHOT.jar", "--spring.profiles.active=prod"] 
           args: ["--spring.config.location=file:/config/application.yml"]
           env:
@@ -47,9 +44,3 @@ spec:
         - name: cloud-82202374-app-volume
           persistentVolumeClaim:
             claimName: cloud-82202374-app-pvc
-        - name: application-properties
-          configMap:
-            name: cloud-82202374-app-config
-            items:
-              - key: application.yml
-                path: application.yml

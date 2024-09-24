@@ -69,6 +69,7 @@ jobs:
     - name: 'Push image to User ACR'
       run: |
         docker push ${{ secrets.MY_ACR_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
+        docker push ${{ secrets.MY_ACR_SERVER }}/${{ env.IMAGE_NAME }}:latest
     
     - name: Update Kubernetes resources
       run: |

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: cloud-82202374-app
-          image: cepgbaseacr.azurecr.io/cloud-sam11ple:latest
+          image: ce82202374acr.azurecr.io/cloud-sample:latest
           ports:
             - containerPort: 8080
           volumeMounts:

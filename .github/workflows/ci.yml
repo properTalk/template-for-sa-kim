@@ -1,9 +1,6 @@
 name: github action CI
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 env:

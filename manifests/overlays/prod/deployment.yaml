@@ -24,11 +24,16 @@ spec:
               subPath: cloud-82202374-app
           command: ["java", "-jar", "/app/template-0.0.1-SNAPSHOT.jar", "--spring.profiles.active=prod"] 
           env:
+            #- name: DB_PASSWORD
+            #  valueFrom:
+            #    secretKeyRef:
+            #      name: db-credentials-secret
+            #      key: password
             - name: DB_PASSWORD
               valueFrom:
-                secretKeyRef:
-                  name: db-credentials-secret
-                  key: password
+                configMapKeyRef:
+                  name: cloud-82202374-app-config
+                  key: DB_PASSWORD
             - name: DB_URL
               valueFrom:
                 configMapKeyRef:

@@ -6,7 +6,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: ${DB_URL}
     username: ${DB_USERNAME}
-    password: Ktds!1234
+    password: ${DB_PASSWORD}
   jpa:
     show-sql: true
     hibernate:

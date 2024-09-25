@@ -6,3 +6,4 @@ metadata:
 data:
   DB_URL: "jdbc:postgresql://ce-82202374-psql.postgres.database.azure.com:5432/postgres"
   DB_USERNAME: "ktds"
+  DB_PASSWORD: "Ktds!1234"

@@ -46,15 +46,15 @@ jobs:
             docker build -t ${{ secrets.BASEACR_LOGIN_SERVER  }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }} -f Dockerfile-maven .
             docker tag ${{ secrets.BASEACR_LOGIN_SERVER  }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }} ${{ secrets.STAPACR_LOGIN_SERVER  }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
     
-    - name: 'Push image to STAP ACR'
-      uses: azure/docker-login@v1
-      with:
-        login-server: ${{ secrets.STAPACR_LOGIN_SERVER  }}
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
+   #- name: 'Push image to STAP ACR'
+   #   uses: azure/docker-login@v1
+   #   with:
+   #     login-server: ${{ secrets.STAPACR_LOGIN_SERVER  }}
+   #     username: ${{ secrets.REGISTRY_USERNAME }}
+   #     password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    - run: |
-          docker push ${{ secrets.STAPACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
+   # - run: |
+   #       docker push ${{ secrets.STAPACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
 
     # my ACR push
     - name: 'Login to User ACR'
